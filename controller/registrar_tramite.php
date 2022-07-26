@@ -84,7 +84,7 @@ if($id_tramite==0){
     //exit();
     redireccionar("../ue_formularios_tramites.php?idt=$tramite&proc=regtra&est=0");
 }else{
-    include("registrar_tramite/_rt_".$tramite.".php"); //AQUI SE INSERTAN LOS PARÁMETROS ESPECÍFICOS DEL TRAMITE
+    include("registrar_tramite/_rt_". $tramite .".php"); //AQUI SE INSERTAN LOS PARÁMETROS ESPECÍFICOS DEL TRAMITE
     //exit();
     if($band==0){
         //INACTIVAR TRÁMITE
