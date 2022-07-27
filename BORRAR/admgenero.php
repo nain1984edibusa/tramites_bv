@@ -81,43 +81,7 @@ include_once("./includes/top.php");
 			             <div id="secc">
    <!--   Mostrar registros de la tabla-->
       <div id="titulo2">Registros Encontrados</div>
-      <div id="sec_contedor">
-			<table>
-			<tr>
-			  <td colspan="4" class="nuevo">Nuevo registro <a href="?sec=1"><img src="img/plus1.png" alt="Nuevo" width="20" height="20" /></a></td>
-			  </tr>
-			<tr><th>Id</th><th>Género</th><th>Editar</th><th>Eliminar</th></tr>
-			 <?php  
-			 
-			  $desde = get("desde"); // recoger la pagina actual
-			  if($desde == 0)
-			    $desde = 0; // poner pagina 0 en la primera entada
-			  $pagina = 3; // numero de registros por página
-			  $des = $desde * $pagina;  // registros de todo el universo 
-			 
-			  $rspaireg = $rol->gen_seleccionartodo(); // selecciono todos los registros
-			  $registros = mysql_num_rows($rspaireg);  // selecciono el total de regitros 
-			  $rspai = $rol->gen_seleccionarpagina($des,$pagina); // seleccion los siguientes $pagina(10) resitros desde $des(20)
-			  while($row = mysql_fetch_row($rspai)){ // recorro los registros devueltos y muestro en las filas
-				 ?>
-          <tr class="fila">
-               <td class="number"><?php echo $row[0]?></td>
-				<td><?php echo $row[1]?></td>
-				<td class="boton"><a href="?sec=2&reg=<?php echo $row[0]?>"><img src="img/edit1.png" alt="Editar" /></a></td>
-				<td class="boton"><a href="javascript:;" onclick="confirmar('?acc=3&reg=<?php echo $row[0]?>'); return false;">
-				<img src="img/minus1.png"/></a></td>
-          </tr>
-            <?php }// fin while?>
-            <tr><td colspan="4" class="paginas">Páginas <?php $p=1; // paginar
-			              for($i=0;$i<$registros;$i=$i+$pagina){
-							    $des = $p-1;
-							    echo '<a href="?desde='.$des.'">'.$p.'</a>  ' ;
-								$p++;
-						  }
-			?></td></tr>
-			</table>
-		   
-       </div> <!--fin sec_contedor-->
+ 
    </div>              			   
 			<?php                   break;  //////////   fin case 0
 						   case 1: //////////////  fomrulario para ingreso de datos	
