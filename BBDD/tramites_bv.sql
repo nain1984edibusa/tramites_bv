@@ -2147,7 +2147,7 @@ CREATE TABLE `ct_regional` (
 --
 
 INSERT INTO `ct_regional` (`reg_id`, `reg_nombre`) VALUES
-(1, 'Zonal 1'),
+(1, 'Zonal uono'),
 (2, 'Zonal 2'),
 (3, 'Zonal 3'),
 (4, 'Zonal 4'),

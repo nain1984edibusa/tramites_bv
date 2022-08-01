@@ -238,7 +238,7 @@ $asignador = new clsusuarios; // declaro un objeto de la clase de la pagina que 
                             while($row = $rsarea->fetch_row()){
                                                   
                           ?>
-                          <option value="<?php echo $row[0]?>"><?php echo $row[1]?></option>
+                          <option value="<?php echo $row[0]?>"><?php echo $row[1]. " - " . $row[2]. " - " . $row[4]?></option>
                           <?php  } // fin while?>
                         </select>
                        

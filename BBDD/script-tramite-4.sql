@@ -49,9 +49,14 @@ CREATE TABLE `_ct_tramite4_contenedor` (
 CREATE TABLE `_ct_tramite4_estado_objeto` (
   `eob_codigo` int(11) NOT NULL AUTO_INCREMENT,
   `eob_nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `eob_estado` 	ENUM ('ACT', 'INA') NOT NULL DEFAULT 'ACT',
   PRIMARY KEY (`eob_codigo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+INSERT INTO `_ct_tramite4_estado_objeto` (`eob_codigo`, `eob_nombre`) VALUES
+(1, 'PENDIENTE'),
+(2, 'NO PATRIMONIAL'),
+(3, 'SE PRESUME PATRIMONIAL');
 
 CREATE TABLE `_ct_tramite4_objeto` (
   `obj_codigo` int(11) NOT NULL AUTO_INCREMENT,
@@ -583,6 +588,7 @@ CREATE TABLE `ct_regional` (
   `reg_ciudad` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `reg_direccion` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `reg_provincia` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+   `reg_estado` 	ENUM ('ACT', 'INA') NOT NULL DEFAULT 'ACT',
   PRIMARY KEY (`reg_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -597,5 +603,81 @@ INSERT INTO `ct_regional` (`reg_id`, `reg_nombre`, `reg_ciudad`, `reg_direccion`
 (7, 'Zonal 7', 'Loja', 'Sucre y Quito. Esq.', 'El Oro, Loja, Zamora');
 
 
+CREATE TABLE `_ct_tramite4_tipo_bien_cultural` (
+   `tbc_codigo` int(10) NOT NULL AUTO_INCREMENT,
+   `tbc_nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+    `tbc_estado` 	ENUM ('ACT', 'INA') NOT NULL DEFAULT 'ACT',
+  PRIMARY KEY (`tbc_codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+
+INSERT INTO `_ct_tramite4_tipo_bien_cultural` (`tbc_codigo`, `tbc_nombre`) VALUES
+(1, 'Artesanías'),
+(2, 'Documentos sueltos'),
+(3, 'Esculturas'),
+(4, 'Fotografí­as'),
+(5, 'Impresión gráfica'),
+(6, 'Misceláneos'),
+(7, 'Orfebrería'),
+(8, 'Pinturas'),
+(9, 'Réplicas Arqueológicas'),
+(10, 'Textiles'),
+(11, 'Otros');
+
+
+CREATE TABLE `ct_horario` (
+   `ho_codigo` int(10) NOT NULL AUTO_INCREMENT,
+   `ho_hora` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+   `ho_estado` 	ENUM ('ACT', 'INA') NOT NULL DEFAULT 'ACT',
+  PRIMARY KEY (`ho_codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+
+INSERT INTO `ct_horario` (`ho_codigo`, `ho_hora`) VALUES
+(1, '08:00 - 08:30'),
+(2, '08:30 - 09:00'),
+(3, '09:00 - 09:30'),
+(4, '09:30 - 10:00'),
+(5, '10:00 - 10:30'),
+(6, '10:30 - 11:00'),
+(7, '11:00 - 11:30'),
+(8, '11:30 - 12:00'),
+(9, '12:00 - 12:30'),
+(10, '12:30 - 13:00'),
+(11, '13:00 - 13:30'),
+(12, '13:30 - 14:00'),
+(13, '14:00 - 14:30'),
+(14, '14:30 - 15:00'),
+(15, '15:00 - 15:30'),
+(16, '15:30 - 16:00'),
+(17, '16:00 - 16:30');
+
+CREATE TABLE `_ct_tramite4_tipo_contenedor` (
+   `tc_codigo` int(10) NOT NULL AUTO_INCREMENT,
+   `tc_nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+   `tc_estado` 	ENUM ('ACT', 'INA') NOT NULL DEFAULT 'ACT',
+  PRIMARY KEY (`tc_codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+INSERT INTO `_ct_tramite4_tipo_contenedor` (`tc_codigo`, `tc_nombre`) VALUES
+(1, 'CAJA'),
+(2, 'MALETA'),
+(3, 'TUBO'),
+(4, 'EMBALAJE MENOR'),
+(5, 'OTROS'),
+(6, 'NINGUNO');
+
+CREATE TABLE `_ct_tramite4_modo_envio` (
+   `me_codigo` int(10) NOT NULL AUTO_INCREMENT,
+   `me_nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+   `me_estado` 	ENUM ('ACT', 'INA') NOT NULL DEFAULT 'ACT',
+  PRIMARY KEY (`me_codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+
+INSERT INTO `_ct_tramite4_modo_envio` (`me_codigo`, `me_nombre`) VALUES
+(1, 'Aéreo'),
+(2, 'Postal'),
+(3, 'Marítimo');
 
 

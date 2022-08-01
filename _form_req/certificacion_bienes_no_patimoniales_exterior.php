@@ -5,6 +5,8 @@
  */
 include_once 'modelo/clsNacionalidad.php';
 include_once 'modelo/clspais.php';
+include_once 'modelo/clsregional.php';
+include_once 'modelo/clsHorario.php';
 ?>
 <div class="container-fluid">
     <div class="container-flat-form">
@@ -107,7 +109,7 @@ include_once 'modelo/clspais.php';
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="group-material">
                         <span>País de Envió <span class="sp-requerido">*</span></span>
-                        <select name="pais-envio" id="pais-envio" class="tooltips-general material-control" required="" data-toggle="tooltip" data-placement="top" title="Elija la nacionalidad">
+                        <select name="pais-envio" id="pais-envio" class="tooltips-general material-control" required="" data-toggle="tooltip" data-placement="top" title="Elija el paiís de envió">
                             <option value="" disabled="" selected="">Selecciona el país de envió</option>
                             <?php
                             $pais = new clspais();
@@ -171,11 +173,17 @@ include_once 'modelo/clspais.php';
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="group-material">
                     <span>Lugar de la cita <span class="sp-requerido">*</span></span>
-                    <select id="hora" name="hora" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige la hora">
-                        <option value="" disabled="" selected="">Selecciona la zonal</option>
-                        <option value="08:00 - 08:20">Zonal 1</option>
-                        <option value="14:00 - 14:20">Zonal 2</option>
-                        <option value="15:30 - 15:50">15:30 - 15:50</option>
+                    <select name="regional" id="regional" class="tooltips-general material-control" required="" data-toggle="tooltip" data-placement="top" title="Elija la zonal">
+                        <option value="" disabled="" selected="">Selecciona la regional</option>
+                        <?php
+                        $regional = new clsregional();
+                        $rsRegional = $regional->regionalSeleccionarActivos();
+                        while ($row = mysqli_fetch_array($rsRegional)) {
+                            ?>
+                            <option value="<?php echo $row[0] ?>"><?php echo $row[1] . " - " . $row[2] . " - " . $row[3]. " - " . $row[4] ?></option>
+                            <?php
+                        }
+                        ?>
                     </select>
                 </div>
             </div>
@@ -193,12 +201,18 @@ include_once 'modelo/clspais.php';
                 <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="group-material">
                         <span>Horario disponible <span class="sp-requerido">*</span></span>
-                        <select id="txthor2" name="txthor2" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige la hora">
-                            <option value="" disabled="" selected="">Selecciona una hora</option>
-                            <option value="08:00 - 08:20">08:00 - 08:20</option>
-                            <option value="14:00 - 14:20">14:00 - 14:20</option>
-                            <option value="15:30 - 15:50">15:30 - 15:50</option>
-                        </select>
+                        <select name="hora" id="hora" class="tooltips-general material-control" required="" data-toggle="tooltip" data-placement="top" title="Elija la zonal">
+                        <option value="" disabled="" selected="">Selecciona la hora</option>
+                        <?php
+                        $horario = new clsHorario();
+                        $rsHorario = $horario->horarioSeleccionarActivos();
+                        while ($row = mysqli_fetch_array($rsHorario)) {
+                            ?>
+                            <option value="<?php echo $row["ho_codigo"]; ?>"><?php echo $row["ho_hora"]; ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
                     </div>
                 </div>
             </div>
