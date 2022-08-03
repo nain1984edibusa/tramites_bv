@@ -77,7 +77,11 @@ $asignador=$clsusuario->get_usuario_by_zonal_perfil($regional, ASIGNADOR);
 $asignador= mysqli_fetch_array($asignador);
 //echo $asignador["usu_id"];
 $clstramiteusuario->setUsu_iid($asignador["usu_id"]);
+
+//insertar en la tabla ct_tramite_usuario
 $id_tramite=$clstramiteusuario->tu_insertar();
+
+
 $clstramiteusuario->setTu_id($id_tramite);
 if($id_tramite==0){
     //echo $id_tramite;
@@ -109,6 +113,8 @@ if($id_tramite==0){
         $ttipot->setTra_id($tramite);
         $tipot=$ttipot->tra_seleccionar_byid();
         $tipot= mysqli_fetch_array($tipot);
+        
+        
         /*Envío de correo al ciudadano*/
         $tipo_mensaje="registro_tra";
         $clsusuario->setUsu_id($_SESSION["codusuario"]);
@@ -137,7 +143,9 @@ if($id_tramite==0){
         $mensaje=get_contenido_mensaje($tipo_mensaje,$mensaje_especifico);
         $template="../includes/email_template_interno.html";
         sendemail(SENDEREMAIL_USER,SENDEREMAIL_PASS,SENDEREMAIL_USER,"Sistema de Trámites en Línea INPC",$cc,$mensaje,"INPC: Notificación Sistema de Trámites en Línea",$template,"","");
-        //include_once "enviar_correo.php";
+        
+
+//include_once "enviar_correo.php";
         //exit();
         //REDIRECCIONAR
         //exit();

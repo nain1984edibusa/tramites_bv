@@ -14,7 +14,7 @@ CREATE TABLE `_ct_tramite4` (
   `tu_band_convanxres` tinyint(4) NOT NULL DEFAULT -1,
   `reg_id` int(11) NOT NULL,
   `et_id` int(11) NOT NULL,
-  `tu_estado` varchar(8) COLLATE utf8_spanish_ci NOT NULL DEFAULT 'ACTIVO',
+  `tu_estado` 	ENUM ('ACT', 'INA') NOT NULL DEFAULT 'ACT',
   `tu_fecha_iniciocoa` date DEFAULT NULL,
   `tu_fecha_convalidacion` date DEFAULT NULL,
   `tu_fecha_concon` date DEFAULT NULL,
@@ -31,8 +31,8 @@ CREATE TABLE `_ct_tramite4` (
   `te_direccion_envio` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `te_codigo_pais_envio` int(11) NOT NULL,
   `te_ciudad_envio` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
-  `te_viaja_con_paquete` int(11) NOT NULL DEFAULT 0,
-  `te_metodo_envio` int(11) NOT NULL,
+  `te_viaja_con_paquete` int(11) NULL DEFAULT 0,
+  `te_metodo_envio` int(11) NULL,
   PRIMARY KEY (`tu_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 

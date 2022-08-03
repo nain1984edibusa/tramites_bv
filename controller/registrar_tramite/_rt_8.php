@@ -32,6 +32,7 @@ $clstut->setTe_parroquia($te_parroquia);
 $clstut->setTe_regional($te_regional);
 $clstut->setTe_direccion($te_direccion);
 $clstut->setTe_codigo_inventario($te_codigo_inventario);
+
 $tu8_id=$clstut->tu_insertar();
 //OBTENIENDO REQUISITOS
 $fileTmpPath_fotos = $_FILES['rfotos']['tmp_name'];

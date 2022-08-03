@@ -1,18 +1,17 @@
-<?php 
-/* 
+<?php
+/*
  * INSTITUTO NACIONAL DE PATRIMONIO CULTURAL
  * Portal de Trámites 2020
  */
 include_once 'modelo/clstipoevento.php';
-
 ?>
 <div class="container-fluid">
     <div class="container-flat-form">
         <div class="title-flat-form title-flat-blue">Formulario de Información</div>
         <form enctype="multipart/form-data" method="post" class="form-padding" action="controller/registrar_tramite.php" autocomplete="off">
-            <input type="hidden" name="idt" id="idt" value="<?php echo $_GET["idt"];?>">
-            <input type="hidden" name="estadot" id="estadot" value="<?php echo $estado_inicial;?>">
-            <input type="hidden" name="duraciont" id="duraciont" value="<?php echo $tramite_tiempo;?>">
+            <input type="hidden" name="idt" id="idt" value="<?php echo $_GET["idt"]; ?>">
+            <input type="hidden" name="estadot" id="estadot" value="<?php echo $estado_inicial; ?>">
+            <input type="hidden" name="duraciont" id="duraciont" value="<?php echo $tramite_tiempo; ?>">
             <input type="hidden" name="iniciat" id="iniciat" value="<?php echo $inicia_tramite; ?>">
             <div class="row">
                 <div class="col-xs-12">
@@ -21,31 +20,31 @@ include_once 'modelo/clstipoevento.php';
                 <div class="col-xs-12">
                     <legend><i class="zmdi zmdi-info-outline"></i> &nbsp; Información General</legend>
                 </div>
-				<div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="group-material">
                         <span>Institución a la que pertenece <span class="sp-requerido">*</span></span>
                         <textarea id="institucion" name="institucion" class="tooltips-general material-control" placeholder="Por ejemplo: Instituto Nacional de Patrimonio Cultural" required="" data-toggle="tooltip" data-placement="top" title="Escribe el nombre de la Institución"></textarea>
                     </div>
                 </div>
-                
-				<div class="col-xs-12 col-sm-6 col-md-6">
+
+                <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="group-material">
                         <span>Tipo de evento que se va a realizar <span class="sp-requerido">*</span></span>
                         <select id="eventos" name="eventos" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Selecciona el Evento" onchange="javascript:showContent();">
-                          <option value="" disabled="" selected="">Seleccione Evento</option> 
-                          <?php 
+                            <option value="" disabled="" selected="">Seleccione Evento</option> 
+                            <?php
                             $evento = new clstipoevento;
                             $rsevento = $evento->tipoevento_seleccionartodo();
-                            while($row= mysqli_fetch_array($rsevento)){                      
-                          ?>
-                          <option value="<?php echo $row[0]?>"><?php echo $row[1]?></option>
-                          <?php  } // fin while?>
+                            while ($row = mysqli_fetch_array($rsevento)) {
+                                ?>
+                                <option value="<?php echo $row[0] ?>"><?php echo $row[1] ?></option>
+                            <?php } // fin while ?>
                         </select>
-                         
+
                     </div>
                 </div>
-				
-				<div class="col-xs-12 col-sm-12 col-md-6">
+
+                <div class="col-xs-12 col-sm-12 col-md-6">
                     <div class="group-material">
                         <input id="txteve" name="txteve"  type="text" class="tooltips-general material-control" placeholder="Escriba otro tipo de evento"  data-toggle="tooltip" data-placement="top" title="Otro tipo de Evento" >
                         <span class="highlight"></span>
@@ -53,7 +52,7 @@ include_once 'modelo/clstipoevento.php';
                         <label><span class="sp-requerido"></span></label>
                     </div>
                 </div>
-                
+
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="group-material">
                         <span>Tema del Evento<span class="sp-requerido">*</span></span>
@@ -108,16 +107,16 @@ include_once 'modelo/clstipoevento.php';
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="col-xs-12 col-sm-6 col-md-6">
-                 <div class="group-material">
+                    <div class="group-material">
                         <input id="chkfec2" type="checkbox" name="chkfec2" onclick="showFec2()"  >
                         <label for="checkbox">Ingrese otra fecha</label> 
-                 </div>
+                    </div>
                 </div>    
-                
+
             </div>
-           
+
             <div id="fec2" class="row margensup" style="display:none">
                 <div class="col-xs-12">
                     <legend><i class="zmdi zmdi-calendar-alt"></i> &nbsp; Fecha y Hora de Atención 2</legend>
@@ -142,14 +141,14 @@ include_once 'modelo/clstipoevento.php';
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
-					<div class="group-material">
+                    <div class="group-material">
                         <input id="chkfec3" type="checkbox" name="chkfec3" onclick="showFec3()"  >
                         <label for="checkbox1">Ingrese otra fecha</label> 
-					</div>
+                    </div>
                 </div>   
             </div>
-			
-			<div id="fec3" class="row margensup" style="display:none">
+
+            <div id="fec3" class="row margensup" style="display:none">
                 <div class="col-xs-12">
                     <legend><i class="zmdi zmdi-calendar-alt"></i> &nbsp; Fecha y Hora de Atención 3</legend>
                 </div>
@@ -173,14 +172,14 @@ include_once 'modelo/clstipoevento.php';
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 ">
-					<div class="group-material">
+                    <div class="group-material">
                         <input id="chkfec4" type="checkbox" name="chkfec4" onclick="showFec4()" align="right" >
                         <label for="checkbox1">Ingrese otra fecha</label> 
-					</div>
+                    </div>
                 </div>   
             </div>
-			
-			<div id="fec4" class="row margensup" style="display:none">
+
+            <div id="fec4" class="row margensup" style="display:none">
                 <div class="col-xs-12">
                     <legend><i class="zmdi zmdi-calendar-alt"></i> &nbsp; Fecha y Hora de Atención 4</legend>
                 </div>
@@ -204,13 +203,13 @@ include_once 'modelo/clstipoevento.php';
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 ">
-					<div class="group-material">
+                    <div class="group-material">
                         <input id="chkfec5" type="checkbox" name="chkfec5" onclick="showFec5()" align="right" >
                         <label for="checkbox1">Ingrese otra fecha</label> 
-					</div>
+                    </div>
                 </div>   
             </div>
-			<div id="fec5" class="row margensup" style="display:none">
+            <div id="fec5" class="row margensup" style="display:none">
                 <div class="col-xs-12">
                     <legend><i class="zmdi zmdi-calendar-alt"></i> &nbsp; Fecha y Hora de Atención 5</legend>
                 </div>
@@ -233,9 +232,9 @@ include_once 'modelo/clstipoevento.php';
                         </select>
                     </div>
                 </div>
-                
+
             </div>
-            
+
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 checkbox">
                     <div class="group-material">
@@ -244,7 +243,7 @@ include_once 'modelo/clstipoevento.php';
                     </div>
                 </div>            
             </div>
-             <div class="row">
+            <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 checkbox">
                     <div class="group-material">
                         <input id="checkbox2" required="" type="checkbox" name="remember" kl_vkbd_parsed="true">
@@ -253,15 +252,15 @@ include_once 'modelo/clstipoevento.php';
                 </div>            
             </div>
             <div class="row">
-               <div class="col-xs-12">
+                <div class="col-xs-12">
                     <p class="text-center">
                         <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
                         <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-arrow-right"></i> &nbsp;&nbsp; Enviar</button>
                         <!--<a href="ue_bandeja_enviados.php?proc=regtra&est=1" class="enlace_especial">Completado</a>-->
                     </p>
-               </div>
+                </div>
             </div>
-       </form>
+        </form>
     </div>
 </div>
 <?php include_once("./modal/acuerdo_conf.php"); ?>
@@ -270,62 +269,57 @@ include_once 'modelo/clstipoevento.php';
 <script type="text/javascript">
     function showContent() {
         element2 = document.getElementById("txteve");
-		check = document.getElementById("eventos");
+        check = document.getElementById("eventos");
         if (check.value != 5) {
-            element2.style.display='none';
-        }
-        else {
-            element2.style.display='block';
+            element2.style.display = 'none';
+        } else {
+            element2.style.display = 'block';
         }
     }
-	
-	function showFec2() {
+
+    function showFec2() {
         element2 = document.getElementById("fec2");
-		check = document.getElementById("chkfec2");
+        check = document.getElementById("chkfec2");
         if (check.checked) {
-            element2.style.display='block';
+            element2.style.display = 'block';
+        } else {
+            element2.style.display = 'none';
         }
-        else {
-            element2.style.display='none';
-        }
-	}
-	function showFec3() {
+    }
+    function showFec3() {
         element2 = document.getElementById("fec3");
-		check = document.getElementById("chkfec3");
+        check = document.getElementById("chkfec3");
         if (check.checked) {
-            element2.style.display='block';
+            element2.style.display = 'block';
+        } else {
+            element2.style.display = 'none';
         }
-        else {
-            element2.style.display='none';
-        }
-	}
-	function showFec4() {
+    }
+    function showFec4() {
         element2 = document.getElementById("fec4");
-		check = document.getElementById("chkfec4");
+        check = document.getElementById("chkfec4");
         if (check.checked) {
-            element2.style.display='block';
+            element2.style.display = 'block';
+        } else {
+            element2.style.display = 'none';
         }
-        else {
-            element2.style.display='none';
-        }
-	}
-	function showFec5() {
+    }
+    function showFec5() {
         element2 = document.getElementById("fec5");
-		check = document.getElementById("chkfec5");
+        check = document.getElementById("chkfec5");
         if (check.checked) {
-            element2.style.display='block';
-        }
-        else {
-            element2.style.display='none';
+            element2.style.display = 'block';
+        } else {
+            element2.style.display = 'none';
         }
     }
 </script>
 <script type="text/javascript">
-function ShowSelected() {
-	/* Para obtener el valor */
-	var cod = document.getElementById("eventos").value;
-	document.getElementById("txteve").value = cod;
+    function ShowSelected() {
+        /* Para obtener el valor */
+        var cod = document.getElementById("eventos").value;
+        document.getElementById("txteve").value = cod;
 
-}
+    }
 </script>
 <a href="#" class="scrollup"><i class="fa fa-arrow-circle-up">sdasdas</i></a>

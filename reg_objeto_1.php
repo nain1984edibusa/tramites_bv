@@ -1,10 +1,15 @@
+
 <?php
 /*
  * INSTITUTO NACIONAL DE PATRIMONIO CULTURAL
  * Portal de Trámites 2022
  */
-
-include_once 'modelo/clsTipoBienCultural.php';
+include_once("./config/variables.php");
+include_once("./includes/header.php");
+include_once("./includes/navbar.php");
+include_once("./includes/top.php");
+include_once("./modelo/util.php");
+include_once("./modelo/clsTipoBienCultural.php");
 ?>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="ModalRegistroObjeto">

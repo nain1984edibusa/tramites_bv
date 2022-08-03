@@ -1,29 +1,25 @@
 <?php
 
-Class clsgenero {
+Class clsTramite4Objeto {
 
     //    definio los campos de la tabla 
-    private $gen_codigo;
-    private $gen_nombre;
-    private $gen_fechcreacion;
-    private $gen_fechcmodifica;
-    private $gen_usucreacion;
-    private $gen_usumodificacion;
-    private $gen_nombreaplicacion;
+    private $obj_codigo;
+    private $tbc_codigo;
+    private $eob_codigo;
+    private $con_codigo;
+    private $obj_cantidad;
+    private $obj_tema;
+    private $obj_autor;
+    private $obj_tecnica;
+    private $obj_largo;
+    private $obj_ancho;
+    private $obj_profundidad;
 
     //////////////////////////////   funciones //////////////////////
 
-    public function carga_gen_codigo($gen_codigo) {
-        $this->gen_codigo = $gen_codigo;
+    public function carga_gen_codigo($obj_codigo) {
+        $this->obj_codigo = $obj_codigo;
     }
-
-//    public function setHo_codigo($ho_codigo): void {
-//        $this->ho_codigo = $ho_codigo;
-//    }
-//
-//    public function getHo_hora() {
-//        return $this->ho_hora;
-//    }
 
     public function carga_gen_nombre($gen_nombre) {
         $this->gen_nombre = $gen_nombre;
@@ -50,13 +46,13 @@ Class clsgenero {
     }
 
     ////////   insertar género   //////////////////
-    public function gen_insertar() {
+    public function obj_insertar() {
         // abro conexión a bases de datos
         $bd = Db::getInstance();
         $this->carga_gen_codigo($bd->lastID()); // sacar el siguiente registro de la tabla y lo cargo en codigo
-        $bd->carga_valores($this->gen_codigo . ",'" . $this->gen_nombre . "'"); // valores a insertae
-        $bd->carga_campos("gen_codigo,gen_nombre"); // campos a ser insertados
-        if ($bd->insertar("ct_genero")) // insertar
+        $bd->carga_valores($this->obj_codigo . ",'" . $this->tbc_codigo . "'"); // valores a insertae
+        $bd->carga_campos("obj_codigo,tbc_codigo"); // campos a ser insertados
+        if ($bd->insertar("_ct_tramite4_objeto")) // insertar
             return 1;  // exito
         else
             return 0;  // error

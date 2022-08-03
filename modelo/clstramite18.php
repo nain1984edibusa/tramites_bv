@@ -6,7 +6,7 @@ Class clstramite18 extends clstramiteusuario{
 	private $te_aforo;
 	private $te_duracion;
 	private $te_persona_acargo;
-    private $te_fecha1;
+        private $te_fecha1;
 	private $te_hora;
     
     function getTe_institucion() {

@@ -29,6 +29,7 @@ $clstut->setTu_fecha_concoa($fecha_control_coa);
 $clstut->setReg_id($clstramiteusuario->getReg_id());
 $clstut->setEt_id($clstramiteusuario->getEt_id());
 $clstut->setUsu_iid($clstramiteusuario->getUsu_iid());
+
 $clstut->setTe_evento($te_evento);
 $clstut->setTe_institucion($te_institucion);
 $clstut->setTe_tema($te_tema);
