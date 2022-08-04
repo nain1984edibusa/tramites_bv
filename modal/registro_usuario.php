@@ -138,7 +138,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+<!--                    <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <img src="./includes/captcha.php" alt="CAPTCHA" class="captcha-image">
                             <i class="zmdi zmdi-refresh-alt refresh-captcha"></i>
@@ -152,7 +152,7 @@
                                 
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 checkbox">
                             <div class="group-material">
@@ -168,7 +168,7 @@
                             <button type="submit" class="btn btn-secondary" data-dismiss="modal"><i class="zmdi zmdi-close"></i> &nbsp; Cancelar</button>
                         </div>
                         <div class="col-xs-6 text-center">
-                            <button type="submit" disabled id="btn_registrarse" class="btn btn-success"><i class="zmdi zmdi-account-add"></i> &nbsp; Registrarse</button>
+                            <button type="submit" class="btn btn-success"><i class="zmdi zmdi-account-add"></i> &nbsp; Registrarse</button>
                         </div>
                     </div>
                 </div>

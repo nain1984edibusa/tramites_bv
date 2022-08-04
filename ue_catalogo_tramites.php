@@ -59,7 +59,7 @@ $tramites=$listado_tramites->tra_seleccionar_all();
             </div>
             <div class="media-body">
                 <div class="col-md-12 nopaddlr">
-                    <h4 class=" media-heading tlistado_especial nopaddlr"><?php echo $row["tra_orden"];?>) <?php echo $row["tra_nombre"];?></h4>
+                    <h4 class=" media-heading tlistado_especial nopaddlr"> <?php echo $row["tra_nombre"];?></h4>
                 </div>
                 <div class="col-xs-12 col-md-5 txt-resultados nopaddlr">
                     <span class='small'><strong>CÓDIGO: </strong><?php echo $row["tra_codigo"];?></span>

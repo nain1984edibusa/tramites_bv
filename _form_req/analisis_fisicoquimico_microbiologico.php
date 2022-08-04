@@ -5,38 +5,29 @@
  */
 ?>
 <div class="container-fluid">
-    <div class="container-flat-form formularios_ct">
+     <div class="container-flat-form">
         <div class="title-flat-form title-flat-blue">Formulario de Información</div>
-        <form action="controller/registrar_tramite.php" method="post" class="form-padding">
-            <div class="row">
-                <div class="col-xs-12">
-                    <?php include_once './includes/errores.php'; ?>
-                    <p class="instrucciones_formularios_ct">Recuerde que los campos marcados con <span class="sp-requerido">*</span> son requeridos.</p>
-                </div>
-                <div class="col-xs-12">
-                    <legend><i class="zmdi zmdi-calendar-alt"></i> &nbsp; Fecha y Hora de Atención</legend>
-                </div>
-                <input type="hidden" name="idt" id="idt" value="<?php echo $_GET["idt"];?>">
-                <input type="hidden" name="estadot" id="estadot" value="<?php echo $estado_inicial;?>">
-                <input type="hidden" name="duraciont" id="duraciont" value="<?php echo $tramite_tiempo;?>">
-                <input type="hidden" name="iniciat" id="iniciat" value="<?php echo $inicia_tramite; ?>">
-                <div class="col-xs-12 col-sm-6 col-md-6">
+        
+        <form enctype="multipart/form-data" method="post" class="form-padding" action="controller/registrar_tramite.php" autocomplete="off"">
+            <input type="hidden" name="idt" id="idt" value="<?php echo $_GET["idt"];?>">
+            <input type="hidden" name="estadot" id="estadot" value="<?php echo $estado_inicial;?>">
+            <input type="hidden" name="duraciont" id="duraciont" value="<?php echo $tramite_tiempo;?>">
+            <input type="hidden" name="iniciat" id="iniciat" value="<?php echo $inicia_tramite; ?>">
+
+
+            <?php while($requisito= mysqli_fetch_array($trequisitos)){ ?>
+                <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="group-material">
-                        <input name="fecha" id="fecha" type="date" class="tooltips-general material-control" placeholder="Escoja una fecha para su cita" step="1" min="<?php echo sumar_ndias_fecha(date("Y-m-d"),1); ?>" max="<?php echo sumar_ndias_fecha(date("Y-m-d"),DIAS_AGENDAS); ?>" value="<?php echo sumar_ndias_fecha(date("Y-m-d"),1); ?>" required="" data-toggle="tooltip" data-placement="top" > <!--title="Escribe el código correlativo del libro, solamente números"-->
+                        <input name="<?php echo $requisito["req_slug"];?>" id="<?php echo $requisito["req_slug"];?>" type="file" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" required='' accept="application/pdf"> 
                         <span class="highlight"></span>
                         <span class="bar"></span>
-                        <label>Fecha de atención <span class="sp-requerido">*</span></label>
+                        <label><?php echo $requisito["req_nombre"];?> <span class="sp-requerido">*</span></label>
+                        
+                        
                     </div>
+                    <input type="hidden" name="<?php echo $requisito["req_slug"]."_id";?>" value="<?php echo $requisito["req_id"];?>"/>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <div class="group-material">
-                        <span>Horario disponible <span class="sp-requerido">*</span></span>
-                        <select name="horario" id="horario" class="tooltips-general material-control" disabled="" data-toggle="tooltip" data-placement="top" title="Elija una hora" required="">
-                            <option value="" disabled="" selected="">Selecciona una hora</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+            <?php } ?> 
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 checkbox">
                     <div class="group-material">

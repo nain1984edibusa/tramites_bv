@@ -34,7 +34,7 @@ CREATE TABLE `_ct_tramite4` (
   `te_viaja_con_paquete` int(11) NULL DEFAULT 0,
   `te_metodo_envio` int(11) NULL,
   PRIMARY KEY (`tu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 
 CREATE TABLE `_ct_tramite4_contenedor` (
@@ -44,14 +44,14 @@ CREATE TABLE `_ct_tramite4_contenedor` (
   `con_tipo` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `con_seguridad` int(11) NOT NULL,
   PRIMARY KEY (`con_codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE `_ct_tramite4_estado_objeto` (
   `eob_codigo` int(11) NOT NULL AUTO_INCREMENT,
   `eob_nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `eob_estado` 	ENUM ('ACT', 'INA') NOT NULL DEFAULT 'ACT',
   PRIMARY KEY (`eob_codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 INSERT INTO `_ct_tramite4_estado_objeto` (`eob_codigo`, `eob_nombre`) VALUES
 (1, 'PENDIENTE'),
@@ -73,13 +73,13 @@ CREATE TABLE `_ct_tramite4_objeto` (
   PRIMARY KEY (`obj_codigo`),
   CONSTRAINT `fk_con_codigo` FOREIGN KEY (`con_codigo`) REFERENCES `_ct_tramite4_contenedor` (`con_codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_eob_codigo` FOREIGN KEY (`eob_codigo`) REFERENCES `_ct_tramite4_estado_objeto` (`eob_codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE `ct_nacionalidad` (
   `nac_codigo` int(10) NOT NULL AUTO_INCREMENT,
   `nac_nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`nac_codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 
 
@@ -334,7 +334,7 @@ CREATE TABLE `ct_pais` (
   `pai_iso` varchar(5) COLLATE utf8_spanish_ci NOT NULL,
   `pai_nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`pai_codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 INSERT INTO `rg_pais` (`PAI_CODIGO`, `PAI_ISO`, `PAI_NOMBRE`) VALUES
 (1, 'AF', 'AFGHANISTAN'),
@@ -590,7 +590,7 @@ CREATE TABLE `ct_regional` (
   `reg_provincia` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
    `reg_estado` 	ENUM ('ACT', 'INA') NOT NULL DEFAULT 'ACT',
   PRIMARY KEY (`reg_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 
 INSERT INTO `ct_regional` (`reg_id`, `reg_nombre`, `reg_ciudad`, `reg_direccion`, `reg_provincia`) VALUES
@@ -608,7 +608,7 @@ CREATE TABLE `_ct_tramite4_tipo_bien_cultural` (
    `tbc_nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
     `tbc_estado` 	ENUM ('ACT', 'INA') NOT NULL DEFAULT 'ACT',
   PRIMARY KEY (`tbc_codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 
 INSERT INTO `_ct_tramite4_tipo_bien_cultural` (`tbc_codigo`, `tbc_nombre`) VALUES
@@ -630,7 +630,7 @@ CREATE TABLE `ct_horario` (
    `ho_hora` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
    `ho_estado` 	ENUM ('ACT', 'INA') NOT NULL DEFAULT 'ACT',
   PRIMARY KEY (`ho_codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 
 INSERT INTO `ct_horario` (`ho_codigo`, `ho_hora`) VALUES
@@ -657,7 +657,7 @@ CREATE TABLE `_ct_tramite4_tipo_contenedor` (
    `tc_nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
    `tc_estado` 	ENUM ('ACT', 'INA') NOT NULL DEFAULT 'ACT',
   PRIMARY KEY (`tc_codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 INSERT INTO `_ct_tramite4_tipo_contenedor` (`tc_codigo`, `tc_nombre`) VALUES
 (1, 'CAJA'),
@@ -672,7 +672,7 @@ CREATE TABLE `_ct_tramite4_modo_envio` (
    `me_nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
    `me_estado` 	ENUM ('ACT', 'INA') NOT NULL DEFAULT 'ACT',
   PRIMARY KEY (`me_codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 
 INSERT INTO `_ct_tramite4_modo_envio` (`me_codigo`, `me_nombre`) VALUES

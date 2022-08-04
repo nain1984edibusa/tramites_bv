@@ -104,7 +104,7 @@ Class cl_tramites{
 	public function tra_seleccionar_all(){
 	    // abro conexión a bases de datos
             $bd=Db::getInstance();
-            $sql = "select * FROM ct_tramites ORDER BY tra_id ASC";
+            $sql = "select * FROM ct_tramites where tra_estado = 'ACTIVO'ORDER BY tra_id ASC";
             $res = $bd->ejecutar($sql);
             $bd->cerrar();
             return $res;
