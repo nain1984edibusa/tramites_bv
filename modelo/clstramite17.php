@@ -77,7 +77,7 @@ Class clstramite17 extends clstramiteusuario{
     public function tra_seleccionar_bycodigo(){
         // abro conexión a bases de datos
         $bd=Db::getInstance();
-        $sql = "select _ct_tramite5.* FROM _ct_tramite5 WHERE _ct_tramite5.tu_codigo='".$this->getTu_codigo()."'";
+        $sql = "select _ct_tramite17.* FROM _ct_tramite17 WHERE _ct_tramite17.tu_codigo='".$this->getTu_codigo()."'";
         //echo $sql;
         $res = $bd->ejecutar($sql);
         //$bd->cerrar();
@@ -86,7 +86,7 @@ Class clstramite17 extends clstramiteusuario{
 
     public function tra_contar_validacionrequisitos($estado){
         $bd=Db::getInstance();
-        $sql="SELECT count(*) as total from _ct_tramite5 WHERE te_cumple='".$estado."' and  _ct_tramite5.tu_codigo='".$this->getTu_codigo()."'";
+        $sql="SELECT count(*) as total from _ct_tramite17 WHERE te_cumple='".$estado."' and  _ct_tramite17.tu_codigo='".$this->getTu_codigo()."'";
         //echo $sql;
         $ttdisp = $bd->ejecutar($sql);
         $res= mysqli_fetch_array($ttdisp);
@@ -99,7 +99,7 @@ Class clstramite17 extends clstramiteusuario{
         $parametros ="te_provincia = '".$this->getTe_provincia()."', te_canton = '".$this->getTe_canton()."', te_parroquia = '".$this->getTe_parroquia()."', te_direccion = '".$this->getTe_direccion()."', te_codigo_inventario='".$this->getTe_codigo_inventario()."', te_regional = '".$this->getTe_regional()."', te_cumple = 'PENDIENTE'";
         $bd->carga_valores("tu_id = ".$this->getTu_id());
         $bd->carga_campos($parametros);
-        if($bd->actualizar("_ct_tramite5")) // insertar
+        if($bd->actualizar("_ct_tramite17")) // insertar
           return 1;  // exito
         else 
           return 0;  // error
@@ -118,8 +118,5 @@ Class clstramite17 extends clstramiteusuario{
           return 0;  // error
         //$bd->cerrar();  // cerrar coneccion
     }
-    
-
-    
 }
 

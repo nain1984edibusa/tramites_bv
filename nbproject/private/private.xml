@@ -3,11 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/tramites_bv/modelo/clspais.php</file>
-            <file>file:/C:/xampp/htdocs/tramites_bv/modelo/clsregional.php</file>
-            <file>file:/C:/xampp/htdocs/tramites_bv/admasignadores.php</file>
-            <file>file:/C:/xampp/htdocs/tramites_bv/_form_req/certificacion_bienes_no_patimoniales_exterior.php</file>
-            <file>file:/C:/xampp/htdocs/tramites_bv/BBDD/tramites_bv.sql</file>
+            <file>file:/C:/xampp/htdocs/tramites_bv/BORRAR/admseltramites.php</file>
+            <file>file:/C:/xampp/htdocs/tramites_bv/index.php</file>
+            <file>file:/C:/xampp/htdocs/tramites_bv/controller/registrar_tramite/_rt_18.php</file>
+            <file>file:/C:/xampp/htdocs/tramites_bv/modelo/clstramite18.php</file>
+            <file>file:/C:/xampp/htdocs/tramites_bv/modelo/clstramites.php</file>
+            <file>file:/C:/xampp/htdocs/tramites_bv/modal/registro_usuario.php</file>
+            <file>file:/C:/xampp/htdocs/tramites_bv/ue_catalogo_tramites.php</file>
+            <file>file:/C:/xampp/htdocs/tramites_bv/js/index.js</file>
+            <file>file:/C:/xampp/htdocs/tramites_bv/_form_req/analisis_fisicoquimico_microbiologico.php</file>
+            <file>file:/C:/xampp/htdocs/tramites_bv/modelo/clstu18respuestas.php</file>
+            <file>file:/C:/xampp/htdocs/tramites_bv/modelo/clstramite17.php</file>
+            <file>file:/C:/xampp/htdocs/tramites_bv/_form_req/autorizacion_investigacion_arqueologica.php</file>
+            <file>file:/C:/xampp/htdocs/tramites_bv/controller/registrar_tramite.php</file>
         </group>
     </open-files>
 </project-private>

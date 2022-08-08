@@ -36,6 +36,14 @@
                     </div>
                 </div>            
             </div>
+<!--            <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="group-material">
+                        <input type="file" class="tooltips-general material-control" placeholder="Ingrese la extensión del predio en ha" pattern="[0-9]{1,20}" required="" maxlength="20" data-toggle="tooltip" data-placement="top" title="Suba una fotografía del predio que facilite su ubicación">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Foto del Predio (PDF)<span class="sp-requerido">*</span></label>
+                    </div>
+                </div>-->
             <div class="row">
                <div class="col-xs-12">
                     <p class="text-center">

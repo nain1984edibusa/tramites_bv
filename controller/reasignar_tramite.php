@@ -37,6 +37,8 @@ switch ($id_tramite) {
         break;
     case "16": $clstramitee = new clstramite16();
         break;
+    case "17": $clstramitee = new clstramite17();
+        break;
     case "18": $clstramitee = new clstramite18();
         break;
 }
@@ -105,6 +107,8 @@ if ($firma == 2) {
             case "13": $clstramiteresp = new clstu13respuestas();
                 break;
             case "16": $clstramiteresp = new clstu16respuestas();
+                break;
+            case "17": $clstramiteresp = new clstu17respuestas();
                 break;
             case "18": $clstramiteresp = new clstu18respuestas();
                 break;
