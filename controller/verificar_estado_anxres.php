@@ -8,6 +8,7 @@ switch($id_tramite){
     case "12": $clste= new clstramite12(); break;
     case "13": $clste= new clstramite13(); break;
     case "16": $clste= new clstramite16(); break;
+    case "17": $clste= new clstramite17(); break;
     case "18": $clste= new clstramite18(); break;
 }
 $clste->setTu_codigo($codigo_tu);
