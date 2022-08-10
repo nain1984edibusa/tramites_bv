@@ -177,9 +177,6 @@ Class clstramite5 extends clstramiteusuario{
             else 
                 return 0;
             $bd->cerrar();  // cerrar coneccion
-
-
-
     }
     public function tra_seleccionar_13bycodigo(){
         // abro conexión a bases de datos

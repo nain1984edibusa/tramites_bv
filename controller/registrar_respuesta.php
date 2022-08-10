@@ -91,6 +91,21 @@ switch ($id_tramite) {
         //$marco_legal=nl2br($_POST["marcolegal"]);
         $marco_legal = $_POST["marcolegal"];
         $clstramiteer->setMarco_legal($marco_legal);
+        $lastAutorizacion = mysqli_fetch_array($clstramiteer->obtener_lastAutorizacion($regionalId));
+        if ($lastAutorizacion["tuc_num_autorizacion"] != null) {
+            $nuevaAut = $lastAutorizacion["tuc_num_autorizacion"] + 1;
+        } else {
+            $nuevaAut = 1;
+        }
+//	$serieAutorizacion = "AUT-INPC-Z".$regionalId."-".$nuevaAut."-".date("Y");         
+        if ($regionalId != 8) {
+            $serieAutorizacion = "AUT-INPC-Z" . $regionalId . "-" . $nuevaAut . "-" . date("Y");
+        } else {
+            $serieAutorizacion = "AUT-INPC-" . $nuevaAut . "-" . date("Y");
+        }
+        $clstramiteer->setTuc_num_serie_autorizacion($serieAutorizacion);
+        $clstramiteer->setTuc_num_autorizacion($nuevaAut);
+        break;
         break;
     case "18":
         $clstramiteer = new clstu18respuestas();
@@ -102,7 +117,7 @@ switch ($id_tramite) {
 $clstramiteer->setTra_id($id_tramite);
 $clstramiteer->setTu_id($tu_id);
 $clstramiteer->setTuc_cumple("PENDIENTE");
-$clstramiteer->setTuc_rutaarchivo($ruta_archivo);
+$clstramiteer->setTuc_rutaarchivo('/upload/172022080911170472/fc2bb8553c9ac50519946a2af97b5be6.pdf');
 $clstramiteer->setTuc_tipo_contestacion($tipo_contestacion);
 $responsable_proceso = "";
 switch ($_SESSION["codperfil"]) {
