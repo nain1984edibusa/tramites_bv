@@ -4,7 +4,8 @@
  * Portal de Trámites 2020
  */
 /*VARIABLES GENERALES*/
-define("URL_SIS","https://tramites.patrimoniocultural.gob.ec");
+//define("URL_SIS","https://tramites.patrimoniocultural.gob.ec");
+define("URL_SIS","http://localhost/");
 define("DIRSERVIDOR",$_SERVER['DOCUMENT_ROOT']."/tramites_bv");
 define("DIRDOWNLOAD","/tramites_bv");
 //define("RUTA_REQUISITOS","/upload/");

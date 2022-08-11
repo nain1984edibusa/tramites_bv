@@ -24,46 +24,37 @@ $clstut->setUsu_iid($clstramiteusuario->getUsu_iid());
 $tu17_id = $clstut->tu_insertar();
 
 //OBTENIENDO REQUISITOS
-$fileTmpPath_carta = $_FILES['rcarta']['tmp_name'];
-$fileName_carta = $_FILES['rcarta']['name'];
-$id_rcarta = $_POST['rcarta_id'];
-$fileTmpPath_proy = $_FILES['rproyecto']['tmp_name'];
-$fileName_proy = $_FILES['rproyecto']['name'];
-$id_rproyecto = $_POST['rproyecto_id'];
+$fileTmpPath_carta = $_FILES['rpdffotos']['tmp_name'];
+$fileName_carta = $_FILES['rpdffotos']['name'];
+$id_rcarta = $_POST['rpdffotos_id'];
+
 $ruta_subirarchivo = RUTA_ARCHIVOSTRAMITES . $clstramiteusuario->getTu_codigo() . "/";
 $carta = subir_archivo($fileTmpPath_carta, $fileName_carta, $ruta_subirarchivo);
-$proyecto = subir_archivo($fileTmpPath_proy, $fileName_proy, $ruta_subirarchivo);
-
-//if(($carta!==0)&&($proyecto!==0)){
-if ((isset($_FILES['rcarta']) && $_FILES['rcarta']['type'] == 'application/pdf') && (isset($_FILES['rproyecto']) && $_FILES['rproyecto']['type'] == 'application/pdf')) {
-    //REGISTRANDO REQUISITOS EN LA BASE DE DATOS
+if ((isset($_FILES['rpdffotos']) && $_FILES['rpdffotos']['type'] == 'application/pdf')) {
+//REGISTRANDO REQUISITOS EN LA BASE DE DATOS
     $regreq = new clsturequisitos();
     $regreq->setTra_id($tramite);
     $regreq->setTur_rutaarchivo($ruta_subirarchivo . $carta);
     $regreq->setTu_id($tu17_id);
     $regreq->setReq_id($id_rcarta);
     if ($regreq->tur_insertar() == 1) {
-        $regreq->setTur_rutaarchivo($ruta_subirarchivo . $proyecto);
-        $regreq->setReq_id($id_rproyecto);
-        if ($regreq->tur_insertar() == 1) {
-            /* REGISTRAR LOS ANEXOS BASE-VACIOS */
-            $anexos = new clstramiteanexos();
-            $anexos->setTra_id($tramite);
-            $nanexos = $anexos->obtener_tramiteanexos();
-            $anexoe = new clstuanexos();
-            while ($ranexo = mysqli_fetch_array($nanexos)) {
-                //echo $tu8_id."ID<br/>";
-                $anexoe->setTu_id($tu17_id);
-                $anexoe->setTra_id($tramite);
-                $anexoe->setTua_codigoe("");
-                $anexoe->setTua_rutaarchivo("");
-                $anexoe->setAnx_id($ranexo["anx_id"]);
-                $anexoe->tua_insertar();
-            }
-            $band = 1;
+        /* REGISTRAR LOS ANEXOS BASE-VACIOS */
+        $anexos = new clstramiteanexos();
+        $anexos->setTra_id($tramite);
+        $nanexos = $anexos->obtener_tramiteanexos();
+        $anexoe = new clstuanexos();
+        while ($ranexo = mysqli_fetch_array($nanexos)) {
+//echo $tu8_id."ID<br/>";
+            $anexoe->setTu_id($tu17_id);
+            $anexoe->setTra_id($tramite);
+            $anexoe->setTua_codigoe("");
+            $anexoe->setTua_rutaarchivo("");
+            $anexoe->setAnx_id($ranexo["anx_id"]);
+            $anexoe->tua_insertar();
         }
+        $band = 1;
     } else {
-        //SI NO SE INSERTARON LOS ARCHIVOS PONER EL TRAMITE INACTIVO
+//SI NO SE INSERTARON LOS ARCHIVOS PONER EL TRAMITE INACTIVO
         $band = 0;
         $clstut->setTu_estado("INACTIVO");
         $clstut->tu_cambiar_estado();

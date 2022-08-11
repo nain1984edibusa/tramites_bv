@@ -44,6 +44,8 @@ $proyecto=subir_archivo($fileTmpPath_proy, $fileName_proy, $ruta_subirarchivo);
     if($regreq->tur_insertar()==1){
         $regreq->setTur_rutaarchivo($ruta_subirarchivo.$proyecto);
         $regreq->setReq_id($id_rproyecto);
+        
+        
         if($regreq->tur_insertar()==1){
             /*REGISTRAR LOS ANEXOS BASE-VACIOS*/
             $anexos=new clstramiteanexos();
